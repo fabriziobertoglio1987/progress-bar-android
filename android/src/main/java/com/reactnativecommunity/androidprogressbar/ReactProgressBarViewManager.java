@@ -7,17 +7,21 @@
 
 package com.reactnativecommunity.androidprogressbar;
 
+import android.util.Log;
+import android.view.View;
 import javax.annotation.Nullable;
 
 import android.content.Context;
 import android.widget.ProgressBar;
 
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.uimanager.BaseViewManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewProps;
+import android.view.accessibility.AccessibilityEvent;
 
 /**
  * Manages instances of ProgressBar. ProgressBar is wrapped in a
@@ -35,6 +39,7 @@ public class ReactProgressBarViewManager extends BaseViewManager<ProgressBarCont
   /* package */ static final String PROP_INDETERMINATE = "indeterminate";
   /* package */ static final String PROP_PROGRESS = "progress";
   /* package */ static final String PROP_ANIMATING = "animating";
+  /* package */ static final String PROP_ACCESSIBILITY_VALUE = "accessibilityValue";
 
   /* package */ static final String DEFAULT_STYLE = "Normal";
 
@@ -127,5 +132,18 @@ public class ReactProgressBarViewManager extends BaseViewManager<ProgressBarCont
     } else {
       throw new JSApplicationIllegalArgumentException("Unknown ProgressBar style: " + styleStr);
     }
+  }
+
+  @ReactProp(name = PROP_ACCESSIBILITY_VALUE)
+  public void setAccessibilityValue1(View view, ReadableMap accessibilityValue) {
+    if (accessibilityValue == null) {
+      return;
+    }
+    // Log.w("TESTING::ReactProgressBarViewManager", "setAccessibilityValue");
+    // Log.w("TESTING::ReactProgressBarViewManager", "accessibilityValue: " + ( accessibilityValue ));
+    view.setTag(R.id.accessibility_value, accessibilityValue);
+    // if (accessibilityValue.hasKey("text")) {
+    //   super.updateViewContentDescription(view);
+    // }
   }
 }

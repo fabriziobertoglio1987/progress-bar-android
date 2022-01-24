@@ -19,8 +19,20 @@ const MovingBar = (props) => {
 const App: React.ComponentType<{}> = () => {
   return (
     <RNTesterPage title="ProgressBar Examples">
-      <RNTesterBlock title="Horizontal Indeterminate ProgressBar">
-        <ProgressBar styleAttr="Horizontal" />
+      <RNTesterBlock title="Horizontal Blue ProgressBar">
+        <MovingBar styleAttr="Horizontal" indeterminate={false} color="blue" />
+      </RNTesterBlock>
+
+      <RNTesterBlock title="Horizontal ProgressBar">
+        <MovingBar styleAttr="Horizontal" indeterminate={false} />
+      </RNTesterBlock>
+
+      <RNTesterBlock title="Horizontal Black Indeterminate ProgressBar">
+        <ProgressBar styleAttr="Horizontal" color="black" />
+      </RNTesterBlock>
+
+      <RNTesterBlock title="Horizontal Blue ProgressBar">
+        <MovingBar styleAttr="Horizontal" indeterminate={false} color="blue" />
       </RNTesterBlock>
     </RNTesterPage>
   );
