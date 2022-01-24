@@ -42,12 +42,12 @@ const ProgressBarAndroid = (
 ) => {
   return (
     <ProgressBarAndroidNativeComponent
-      // importantForAccessibility="no-hide-descendants"
       {...props}
       ref={forwardedRef}
       accessible={true}
       accessibilityValue={{max: 100, min: 1}}
       accessibilityState={{disabled: true}}
+      importantForAccessibility="yes"
     />
   );
 };
