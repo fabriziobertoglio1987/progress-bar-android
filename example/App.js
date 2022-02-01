@@ -20,7 +20,13 @@ const App: React.ComponentType<{}> = () => {
   return (
     <RNTesterPage title="ProgressBar Examples">
       <RNTesterBlock title="Horizontal Blue ProgressBar">
-        <MovingBar styleAttr="Horizontal" indeterminate={false} color="blue" />
+        <MovingBar
+          accessible={true}
+          accessibilityState={{disabled: true}}
+          styleAttr="Horizontal"
+          indeterminate={false}
+          color="blue"
+        />
       </RNTesterBlock>
     </RNTesterPage>
   );

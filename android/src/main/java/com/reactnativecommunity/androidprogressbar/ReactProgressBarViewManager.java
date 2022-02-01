@@ -57,6 +57,11 @@ public class ReactProgressBarViewManager extends BaseViewManager<ProgressBarCont
     return REACT_CLASS;
   }
 
+  @ReactProp(name = "accessible")
+  public void setAccessible(ProgressBarContainerView view, boolean accessible) {
+    view.setFocusable(accessible);
+  }
+
   @Override
   protected ProgressBarContainerView createViewInstance(ThemedReactContext context) {
     return new ProgressBarContainerView(context);

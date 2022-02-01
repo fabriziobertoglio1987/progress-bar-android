@@ -28,17 +28,22 @@ import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
   private boolean mIndeterminate = true;
   private boolean mAnimating = true;
   private double mProgress;
+  private boolean mFocusable = false;
   private @Nullable ProgressBar mProgressBar;
 
   public ProgressBarContainerView(Context context) {
     super(context);
   }
 
+  public void setFocusable(boolean accessible) {
+    mFocusable = accessible;
+  }
+
   public void setStyle(@Nullable String styleName) {
     int style = ReactProgressBarViewManager.getStyleFromString(styleName);
     mProgressBar = ReactProgressBarViewManager.createProgressBar(getContext(), style);
     mProgressBar.setMax(MAX_PROGRESS);
-    mProgressBar.setFocusable(true);
+    mProgressBar.setFocusable(mFocusable);
     removeAllViews();
     addView(
         mProgressBar,
