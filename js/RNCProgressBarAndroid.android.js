@@ -40,16 +40,7 @@ const ProgressBarAndroid = (
   props: ProgressBarAndroidProps,
   forwardedRef: ?React.Ref<typeof ProgressBarAndroidNativeComponent>,
 ) => {
-  return (
-    <ProgressBarAndroidNativeComponent
-      {...props}
-      ref={forwardedRef}
-      accessible={true}
-      accessibilityValue={{max: 100, min: 1}}
-      accessibilityState={{disabled: true}}
-      importantForAccessibility="yes"
-    />
-  );
+  return <ProgressBarAndroidNativeComponent {...props} ref={forwardedRef} />;
 };
 
 const ProgressBarAndroidToExport = React.forwardRef(ProgressBarAndroid);
